@@ -243,7 +243,7 @@ function retargetNonBubblingEvent(e) {
  * @this {Event}
  */
 export function addEventListener(type, fn, optionsOrCapture) {
-  if (!fn) {
+  if (!fn || typeof fn !== 'function') {
     return;
   }
 
@@ -299,7 +299,7 @@ export function addEventListener(type, fn, optionsOrCapture) {
           return;
         }
       }
-      return fn(e);
+      return fn.call(this, e);
     }
   };
   // Store the wrapper information.
