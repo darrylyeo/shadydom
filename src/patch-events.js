@@ -243,7 +243,7 @@ function retargetNonBubblingEvent(e) {
  * @this {Event}
  */
 export function addEventListener(type, fn, optionsOrCapture) {
-  if (!fn || typeof fn !== 'function') {
+  if (!fn) {
     return;
   }
 
